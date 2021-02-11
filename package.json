@@ -1,7 +1,7 @@
 {
   "name": "ocr",
   "version": "1.0.0",
-  "description": "",
+  "description": "Application where you can upload your bill/invoice and click on a product/item and select a friend name from your contacts list, to split the bill with them.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
