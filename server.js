@@ -48,7 +48,17 @@ app.post('/upload', (req, res) => {
         console.log('progress', p);
       })
       .then(function(result) {
-        res.send(result.html);
+
+        //Regex to fetch prices >  (\s\d+\.\s[0-9][0-9]\n)|(\s\d+\.[0-9][0-9]\n)
+        prices = result.text.match(/(\s\d+\.\s[0-9][0-9]\n)|(\s\d+\.[0-9][0-9]\n)/g) 
+        products = result.text.match(/(\d{4,11}\s(.*)\s)|(\d{4,11}\s\w{0,5}?![0-9]\n)/g)
+        res1 = {
+          'product-names': products,
+          'product-prices': prices,
+          'number-of-products': products.length,
+          'number-of-prices': prices.length,
+        }
+        res.send(res1);
       });
   });
 });
